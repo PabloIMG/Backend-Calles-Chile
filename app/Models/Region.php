@@ -11,7 +11,7 @@ class Region extends Model
 
     protected $table = 'regiones';
     protected $primaryKey = 'id';
-    protected $timestamps = true;
+    public $timestamps = true;
 
     protected $fillable = [
         'numero',

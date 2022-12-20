@@ -2,6 +2,8 @@
 
 namespace App\Repositories;
 
+use Illuminate\Http\Response;
+use Illuminate\Http\Request;
 use App\Models\Region;
 use App\Models\Provincia;
 use App\Models\Ciudad;
@@ -11,7 +13,7 @@ class DataRepository
 {
     public function getRegiones()
     {
-        $Region::all();
+        $Region = Region::all();
 
         return response()->json($Region, Response::HTTP_OK);
     }
