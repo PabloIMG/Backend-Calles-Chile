@@ -11,7 +11,7 @@ class Calle extends Model
 
     protected $table = 'calles';
     protected $primaryKey = 'id';
-    protected $timestamps = true;
+    public $timestamps = true;
 
     protected $fillable = [
         'nombre',

@@ -3,6 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\RegionController;
+use App\Http\Controllers\ProvinciaController;
+use App\Http\Controllers\CiudadController;
+use App\Http\Controllers\CalleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +29,8 @@ Route::prefix('/data')->group(function () {
     Route::get('/provincias/{region_id}', 'App\Http\Controllers\DataController@getProvincias');
     Route::get('/ciudades/{provincia_id}', 'App\Http\Controllers\DataController@getCiudades');
     Route::get('/calles/{ciudad_id}', 'App\Http\Controllers\DataController@getCalles');
+    // Route::get('/regiones', 'App\Http\Controllers\RegionController@getRegiones');
+    // Route::get('/provincias/{region_id}', 'App\Http\Controllers\ProvinciaControllerController@getProvincias');
+    // Route::get('/ciudades/{provincia_id}', 'App\Http\Controllers\CiudadController@getCiudades');
+    // Route::get('/calles/{ciudad_id}', 'App\Http\Controllers\CalleController@getCalles');
 });

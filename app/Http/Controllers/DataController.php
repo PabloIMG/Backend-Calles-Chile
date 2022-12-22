@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\DataRepository;
+use App\Repositories\DataRepositoryInterface;
 
 class DataController extends Controller
 {
-    protected DataRepository $dataRepo;
+    protected $dataRepo;
 
-    public function __construct(DataRepository $dataRepo)
+    public function __construct(DataRepositoryInterface $dataRepo)
     {
         $this->dataRepo = $dataRepo;
     }

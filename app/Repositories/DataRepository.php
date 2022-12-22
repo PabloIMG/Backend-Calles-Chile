@@ -8,8 +8,9 @@ use App\Models\Region;
 use App\Models\Provincia;
 use App\Models\Ciudad;
 use App\Models\Calle;
+use App\Repositories\DataRepositoryInterface;
 
-class DataRepository
+class DataRepository implements DataRepositoryInterface
 {
     public function getRegiones()
     {
@@ -20,22 +21,22 @@ class DataRepository
 
     public function getProvincias($region_id)
     {
-        $Provincia::where('region_id', $region_id)->get();
+        $Provincia = Provincia::where('region_id', $region_id)->get();
 
-        return response()->json($Provincia, Response::HTTP_OK);
+        return response()->json(["provincias"=>$Provincia], Response::HTTP_OK);
     }
 
     public function getCiudades($provincia_id)
     {
-        $Ciudad::where('provincia_id', $provincia_id)->get();
+        $Ciudad = Ciudad::where('provincia_id', $provincia_id)->get();
 
-        return response()->json($Ciudad, Response::HTTP_OK);
+        return response()->json(["ciudades"=>$Ciudad], Response::HTTP_OK);
     }
 
     public function getCalles($ciudad_id)
     {
-        $Calle::where('ciudad_id', $ciudad_id)->get();
+        $Calle = Calle::where('ciudad_id', $ciudad_id)->get();
 
-        return response()->json($Calle, Response::HTTP_OK);
+        return response()->json(["calles"=>$Calle], Response::HTTP_OK);
     }
 }
