@@ -3,6 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\RegionController;
+use App\Http\Controllers\ProvinciaController;
+use App\Http\Controllers\CiudadController;
+use App\Http\Controllers\CalleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +24,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //? API calles.
-Route::prefix('/data')->group(function () use ($router) {
-    $router->get('/regiones', [DataController::class, 'getRegiones']);
-    $router->get('/provincias/{region_id}', [DataController::class, 'getProvincias']);
-    $router->get('/ciudades/{provincia_id}', [DataController::class, 'getCiudades']);
-    $router->get('/calles/{ciudad_id}', [DataController::class, 'getCalles']);
+Route::prefix('/data')->group(function () {
+    Route::get('/regiones', 'App\Http\Controllers\RegionController@getRegiones');
+    Route::get('/provincias/{region_id}', 'App\Http\Controllers\ProvinciaController@getProvincias');
+    Route::get('/ciudades/{provincia_id}', 'App\Http\Controllers\CiudadController@getCiudades');
+    Route::get('/calles/{ciudad_id}', 'App\Http\Controllers\CalleController@getCalles');
 });

@@ -27,7 +27,10 @@ class RepositoryProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(DataRepositoryInterface::class, DataRepository::class);
+        $this->app->bind(RegionRepositoryInterface::class, RegionRepository::class);
+        $this->app->bind(ProvinciaRepositoryInterface::class, ProvinciaRepository::class);
+        $this->app->bind(CiudadRepositoryInterface::class, CiudadRepository::class);
+        $this->app->bind(CalleRepositoryInterface::class, CalleRepository::class);
     }
 
     /**
